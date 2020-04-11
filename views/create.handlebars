@@ -1,0 +1,30 @@
+<h1>Write A New Review </h1>
+<article>
+    <form method="POST" action="/create">
+        <div class="input-field">
+            <label>Book Title:</label>
+            <input type="text" name="title" size="50" placeholder="Book Title...">
+        </div>
+        <div class="input-field">
+            <label>Book Author:</label>
+            <input type="text" name="author" size="50" placeholder="Book Author...">
+        </div>
+         <div class="input-field">
+            <label>Book Slug:</label>
+            <input type="text" name="slug" size="50" placeholder="book-title">
+        </div>
+        <div class="input-field">
+            <label>Book Types:</label>
+            <input type="text" name="type" size="50" placeholder="Fiction Horror Romance (seperated by spaces)">
+        </div>
+        <div class="input-field">
+            <label>Rating:</label>
+            <input type="number" name="rating" size="20" min = "1" max = "5" placeholder="Out of 5"></textarea>
+        </div>
+        <div class="input-field">
+            <label>Review:</label>
+            <textarea type="text" name="review" rows="20" placeholder="Review..."></textarea>
+        </div>
+        <button type="submit">Submit review </button>
+    </form>
+</article>

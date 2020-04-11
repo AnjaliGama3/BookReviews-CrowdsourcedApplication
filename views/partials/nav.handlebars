@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box;}
+
+body {
+  margin: 0;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color:rgb(178, 231, 178);
+}
+
+.topnav a {
+  font-size: 18px;
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+
+.topnav .search-container {
+  float: right;
+}
+
+.topnav input[type=text] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+}
+
+.topnav .search-container button {
+  float: right;
+  padding: 6px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.topnav .search-container button:hover {
+  background: #ccc;
+}
+
+#nothing_left {
+    display: none;
+}
+@media screen and (max-width: 600px) {
+  .topnav .search-container {
+    float: none;
+  }
+  .topnav a, .topnav input[type=text], .topnav .search-container button {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  .topnav input[type=text] {
+    border: 1px solid #ccc;  
+  }
+}
+</style>
+</head>
+<body>
+
+
+<div class="topnav">
+  <a  href="/type/Fiction">Fiction</a>
+  <a href="/type/Romance">Romance</a>
+  <a href="/type/SciFi">SciFi</a>
+  <a href="/type/Horror">Horror</a>
+    <a href="/rate/leastFavorites">One Starred</a>
+     <a href="/rate/topRated">Top rated</a>
+
+  <div class="search-container">
+      <input id = "searchInput" type="text" placeholder="Search.." onkeyup="func()" name="search">
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</div>
+
+
+<div id = "nothing_left">
+    <h2>There are no reviews left</h2>
+</div>
+
+<script>
+    function func(){
+        var input, filter, ul, li, textValue, disp;
+         input = document.getElementById("searchInput");
+          filter = input.value.toUpperCase();
+         ul = document.getElementById("myUL");
+          li = ul.getElementsByTagName("article");
+          console.log(input);
+        console.log(filter);
+        console.log(ul);
+        for (i = 0; i < li.length; i++) {
+       // console.log(li[i]);
+        //console.log(li[i].textContent);
+        //console.log(li[i].innerText.title);
+            textValue = li[i].textContent || li[i].innerText
+            if (textValue.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+            } else {
+             li[i].style.display = "none";
+            }
+       // a = document.getElementById("Hello");
+        //a = li[i].getElementsByTagName("a")[0];
+        //console.log(li[i].getElementByID("hello"));
+       // console.log(li[i]);
+       // console.log($this);
+      //  document.getElementById({{this.slug}});
+        }      
+        disp = true;
+        for (i = 0; i < li.length; i++) {
+            if(li[i].style.display != "none"){
+                disp = false;
+            }
+            
+        }
+
+        if(disp){
+            var x = document.getElementById("nothing_left");
+            x.style.display = "block";
+            console.log(x);
+        }else{
+            var x = document.getElementById("nothing_left");
+            x.style.display = "none";
+        }
+    }
+</script>
+
+
+</body>
+</html>

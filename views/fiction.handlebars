@@ -1,0 +1,17 @@
+var types = dataUtil.getAllTypes(_DATA);
+ // console.log(types);
+  
+  var intype = req.params.intype;
+//  console.log(intype);
+  var posts = [];
+  _DATA.forEach(function(post) {
+
+      if (post.type.includes(intype)) {
+          posts.push(post);
+      }
+  });
+  res.render('home', {
+      types: types,
+      data: posts,
+      
+  });
