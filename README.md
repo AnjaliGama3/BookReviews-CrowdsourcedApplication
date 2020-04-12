@@ -47,7 +47,7 @@ request(options, function (error, response, body) {
 if (error) throw new Error(error);
 console.log(body);
 });
-
+```
 ### 3. View Data
 GET endpoint route: /api/reviews
 
